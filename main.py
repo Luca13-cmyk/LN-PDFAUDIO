@@ -63,18 +63,18 @@ def main():
         file_path = save_uploaded_file(uploaded_file)
 
         # Display file content
-        pdf_text = read_pdf(resource_path(file_path))
+        pdf_text = read_pdf(file_path)
 
 
         # Convert text to audio
-        audio_file_path = resource_path(os.path.join("uploads", "output.mp3"))
+        audio_file_path = os.path.join("uploads", "output.mp3")
         st.markdown(convertingToAudio)
         text_to_audio(pdf_text, audio_file_path)
         convertingToAudio = "Text converted to audio!"
         st.success(convertingToAudio)
 
         # Provide a link-like button to the local audio file
-        with open(resource_path(audio_file_path), 'rb') as f:
+        with open(audio_file_path, 'rb') as f:
             st.download_button('Download Audio', f, file_name='output.mp3')
 
 

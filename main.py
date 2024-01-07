@@ -67,7 +67,7 @@ def main():
 
 
         # Convert text to audio
-        audio_file_path = os.path.join("uploads", "output.mp3")
+        audio_file_path = resource_path(os.path.join("uploads", "output.mp3"))
         st.markdown(convertingToAudio)
         text_to_audio(pdf_text, audio_file_path)
         convertingToAudio = "Text converted to audio!"

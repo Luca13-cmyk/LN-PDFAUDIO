@@ -40,7 +40,7 @@ def save_uploaded_file(uploaded_file):
     # Save the file to the 'uploads' folder
 
     file_path = os.path.join("uploads", uploaded_file.name)
-    with open(resource_path(file_path), "wb") as f:
+    with open(file_path, "wb") as f:
         f.write(uploaded_file.getbuffer())
 
     return file_path

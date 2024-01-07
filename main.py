@@ -56,10 +56,10 @@ def main():
         st.success("File successfully uploaded!")
 
         # Save the uploaded file to the disk
-        file_path = save_uploaded_file(uploaded_file)
+        # file_path = save_uploaded_file(uploaded_file)
 
         # Display file content
-        pdf_text = read_pdf(resource_path(file_path))
+        pdf_text = read_pdf(resource_path(uploaded_file))
 
         # Convert text to audio
         audio_file_path = resource_path(os.path.join("uploads", "output.mp3"))

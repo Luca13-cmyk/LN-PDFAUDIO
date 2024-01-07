@@ -38,7 +38,7 @@ def text_to_audio(text, audio_file_path):
 
 def save_uploaded_file(uploaded_file):
     # Save the file to the 'uploads' folder
-    file_path = resource_path(os.path.join("uploads", uploaded_file.name))
+    file_path = os.path.join("uploads", uploaded_file.name)
     with open(file_path, "wb") as f:
         f.write(uploaded_file.getbuffer())
 
@@ -56,10 +56,11 @@ def main():
         st.success("File successfully uploaded!")
 
         # Save the uploaded file to the disk
-        # file_path = save_uploaded_file(uploaded_file)
+        file_path = save_uploaded_file(uploaded_file)
 
         # Display file content
-        pdf_text = read_pdf(resource_path(uploaded_file))
+        pdf_text = read_pdf(resource_path(file_path))
+
 
         # Convert text to audio
         audio_file_path = resource_path(os.path.join("uploads", "output.mp3"))
